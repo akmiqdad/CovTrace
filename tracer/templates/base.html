@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CovTrace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'main.css'%}">
+    <link rel="icon" href="{% static 'favicon.svg' %}" type="image/png">
+</head>
+
+<body style="border-color: #37434d;overflow: auto; ">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top justify-content-end navigation-clean-button"
+            style="height:80px;background-color:#37434d;color:#ffffff;">
+            <div class="container-fluid "><a class="navbar-brand" href="{%url 'home'%}">
+                    <i class="fas fa-shield-virus"></i>&nbsp;CovTrace</a>
+                    {%block logout%}
+                  
+                    {%endblock%}
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <!-- <li class="nav-item"><a class="nav-link active" style="color:#ffffff;" href="#"><i
+                                    class="fa fa-home"></i>&nbsp;Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" style="color:#ffffff;" href="#"><i
+                                    class="fa fa-wpexplorer"></i>&nbsp;Explore</a></li>
+                        <li class="nav-item"><a class="nav-link active" style="color:#ffffff;" href="#"><i
+                                    class="fa fa-star-o"></i>&nbsp;Features</a></li>
+                        <li class="nav-item"><a class="nav-link active" style="color:#ffffff;" href="#"><i
+                                    class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
+                         -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+        {%block content%}
+
+        {%endblock%}
+    
+
+    <footer class=" text-white text-center text-lg-start p-1" style="background-color:#37434d;position:fixed; ">
+        <div class="text-center" style="background-color:#37434d;">
+            CovTrace © 2021
+        </div>
+    </footer>
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready((function () {
+                $("[data-bs-chart]").each((function (e, o) {
+                    this.chart = new Chart($(o), $(o).data("bs-chart"))
+                }))
+            })),
+            function (e) {
+                "use strict";
+                e("#sidebarToggle, #sidebarToggleTop").on("click", (function (o) {
+                    e("body").toggleClass("sidebar-toggled"), e(".sidebar").toggleClass("toggled"), e(
+                        ".sidebar").hasClass("toggled") && e(".sidebar .collapse").collapse("hide")
+                })), e(window).resize((function () {
+                    e(window).width() < 768 && e(".sidebar .collapse").collapse("hide")
+                })), e("body.fixed-nav .sidebar").on("mousewheel DOMMouseScroll wheel", (function (o) {
+                    if (e(window).width() > 768) {
+                        var t = o.originalEvent,
+                            l = t.wheelDelta || -t.detail;
+                        this.scrollTop += 30 * (l < 0 ? 1 : -1), o.preventDefault()
+                    }
+                })), e(document).on("scroll", (function () {
+                    e(this).scrollTop() > 100 ? e(".scroll-to-top").fadeIn() : e(".scroll-to-top").fadeOut()
+                })), e(document).on("click", "a.scroll-to-top", (function (o) {
+                    var t = e(this);
+                    e("html, body").stop().animate({
+                        scrollTop: e(t.attr("href")).offset().top
+                    }, 1e3, "easeInOutExpo"), o.preventDefault()
+                }))
+            }(jQuery);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="page-top">
+    <div id="wrapper" style="display:flex">
+<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #30383a;">
+    <div class="container-fluid d-flex flex-column"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            <div class="sidebar-brand-icon rotate-n-15"></div>
+            <div class="sidebar-brand-text mx-3"></div>
+        </a>
+        <hr class="sidebar-divider my-0">
+        <ul class="nav navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link active" href="{%url 'report'%}"><i class="fas fa-table"></i><span> Table</span></a></li>
+           
+            <li class="nav-item"><a class="nav-link" href="{%url 'register'%}"><i class="fas fa-user-circle"></i><span> Register new student</span></a>
+            
+            <li class="nav-item"> <a class="nav-link" href="{%url 'logout'%}"><i class="far fa-user-circle"></i><span> Logout</span></a></li>
+        </ul>
+        <div class="text-center d-none d-md-inline"></div>
+    </div>
+</nav>
+<div class="d-flex flex-column m-3" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 font-weight-bold">Covid Tracing Report</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm">
+                                        <option value="10" selected="">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <table class="table my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Admission No.</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Class</th>
+                                    <th>Age</th>
+                                    <th>Phone</th>
+                                    <th>Health Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for Student in Students%}
+                                <tr>
+                                    <td>{{Student.admnno}}</td>
+                                    <td>{{Student.name}}</td>
+                                    <td>{{Student.designation}}</td>
+                                    <td>{{Student.sclass}}</td>
+                                    <td>{{Student.age}}</td>
+                                    <td>{{Student.phone}}</td>
+                                    <td>{{Student.health}}</td>
+                                </tr>
+                                {% endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div></div>
+
+
+{% endblock %}

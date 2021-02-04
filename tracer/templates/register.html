@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="container d-flex justify-content-center">
+    <h4 class="display-4" style="font-family:zillaslab,palatino,Roboto;font-weight: bold;padding-top:10px;">Student Details</h4>
+</div>
+<div class="container">
+  <div class="row  d-flex  justify-content-center">
+    <div class="col-6 card shadow p-3 m-4 align-items-center  bg-white rounded border border-dark">
+      <form action="" method="POST">
+        {% csrf_token %}
+         {{ form.as_p}}
+         <div class="text-center">
+        <button class="btn btn-dark rounded mt-3" type="submit" action="{%url 'report'%}">Submit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+	
