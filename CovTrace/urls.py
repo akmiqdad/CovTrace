@@ -16,14 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from tracer.views import Register,Signup,ViewHome,ViewReport,ViewAttendanceForm
+from tracer.views import Register,Signup,ViewHome,ViewReport,ViewTracingForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',ViewHome,name='home'),
     path('home/',ViewHome,name='home'),
     path('administration/report',ViewReport,name='report'),
-    path('administration/update',ViewAttendanceForm,name='update'),
+    path('administration/update',ViewTracingForm,name='update'),
     # path('adminlogin/',ViewAdminLogin,name='adminlogin'),
     # path('studentlogin/',ViewStudentLogin,name='studentlogin'),
     path('accounts/', include('django.contrib.auth.urls')),

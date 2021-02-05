@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Student
-from .forms import StudentForm
+from .models import Student,Tracing
+from .forms import StudentForm,TracingForm
 from django.contrib.auth import authenticate, login
 
 def ViewHome(request):
@@ -11,9 +11,19 @@ def ViewHome(request):
     return render(request,'index.html')
 
      
-def ViewAttendanceForm(request):
-   
-    return render(request,'update.html')
+def ViewTracingForm(request):
+    if request.method == 'POST':
+        form = TracingForm(request.user.username,request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+            form = TracingForm(request.user.username)
+    
+    context = {}
+    context['form'] = form
+    print(form)
+    return render(request,'update.html',context)
 
     
 

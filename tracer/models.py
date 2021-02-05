@@ -14,8 +14,17 @@ class Student(models.Model):
     age=models.IntegerField()
     phone=models.IntegerField()
     health=models.CharField(max_length=30, blank=False)
+    remarks=models.CharField(max_length=30, blank=False)
 
     def __str__(self):
         return self.user.username
 
         
+class Tracing(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=False,default="")
+    date = models.DateField(default=date.today)
+    status = models.TextField(max_length=100, blank=True)
+
+
+    def __str__(self):
+        return self.date
