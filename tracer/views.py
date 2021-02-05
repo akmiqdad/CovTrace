@@ -22,16 +22,17 @@ def ViewTracingForm(request):
     
     context = {}
     context['form'] = form
-    print(form)
+    # print(form)
     return render(request,'update.html',context)
 
     
 
 def ViewReport(request):
     Students = Student.objects.all()
-    # print(Students)
+    Traces=Tracing.objects.all()
     context = {}
     context['Students'] = Students
+    context['Traces'] = Traces
     return render(request,'report.html',context)
 
 def Register(request):

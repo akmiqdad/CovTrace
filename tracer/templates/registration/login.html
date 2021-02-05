@@ -6,7 +6,7 @@
 
 {% block content %}
 {% if not user.is_authenticated%}
-<div class="login-card" style="border: 1px solid var(--dark) ;">
+<div class="login-card shadow" style="border: 1px solid var(--dark) ;">
     <img class="profile-img-card" src="{% static 'avatar.webp' %}" style="border-width: 1px;border-style: none;">
     <p class="profile-name-card"> </p>
     <form class="form-signin" method="POST">
@@ -24,7 +24,7 @@
 {% else %}
 
 <div class="container ">
-    <div class="login-card" style="border: 1px solid var(--dark) ;"><img class="profile-img-card  border-dark"
+    <div class="login-card shadow" style="border: 1px solid var(--dark) ;"><img class="profile-img-card  border-dark"
             src="{% static 'avatar.webp' %}" style="border-width: 1px;">
         <h1 style="font-family: Roboto; font-weight: bold;text-align: center;">You are already Logged In!</h1>
     </div>

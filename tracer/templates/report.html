@@ -54,11 +54,11 @@
                                     <th>Age</th>
                                     <th>Phone</th>
                                     <th>Health Status</th>
-                                    <th>01/02/2021</th>
-                                    <th>02/02/2021</th>
-                                    <th>03/02/2021</th>
-                                    <th>04/02/2021</th>
-                                    <th>05/02/2021</th>
+                                    <th>04-02-2021</th>
+                                    <th>05-02-2021</th>
+                                    {% for Trace in Traces%}
+                                    <th>{{Traces.date}}</th>
+                                    {% endfor%}
                                     <th>Remarks</th>
                                 </tr>
                             </thead>
@@ -72,11 +72,11 @@
                                     <td>{{Student.age}}</td>
                                     <td>{{Student.phone}}</td>
                                     <td>{{Student.health}}</td>
+                                    <td>No</td>
+                                    <td>No</td>
+                                    {% for Trace in Traces%}
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    {% endfor%}
                                     <td>{{Student.remarks}}</td>
                                 </tr>
                                 {% endfor%}

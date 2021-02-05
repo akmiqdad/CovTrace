@@ -4,20 +4,20 @@
 {% block content %}
 {% if not user.is_authenticated%}
 
-<div class="register-photo">
-    <div class="form-container  shadow ">
+<div class="register-photo  mt-5">
+    <div class="form-container shadow">
         <div class="image-holder" style="background: url('{% static 'cov.webp' %}') 0 0/cover;"></div>
-        <form method="" >
-                <div class=" form-group">
-            <a class="btn btn-primary btn-block" href="{% url 'login' %}"
-                style="background: #ffffff;color: #37434d;border-style: solid;">Administrator
-                Login</a>
-            <a class="btn btn-primary btn-block" href="{% url 'login' %}"
-                style="background: #ffffff;color: #37434d;border-style: solid;border-color: #37434d;">Student
-                Login</a>
+        <form method="">
+            <div class=" form-group">
+                <a class="btn btn-primary btn-block" href="{% url 'login' %}"
+                    style="background: #ffffff;color: #37434d;border-style: solid;">Administrator
+                    Login</a>
+                <a class="btn btn-primary btn-block" href="{% url 'login' %}"
+                    style="background: #ffffff;color: #37434d;border-style: solid;border-color: #37434d;">Student
+                    Login</a>
+            </div>
+        </form>
     </div>
-    </form>
-</div>
 </div>
 
 {% else %}
@@ -25,17 +25,17 @@
 <div class="register-photo">
     <div class="form-container  shadow ">
         <div class="image-holder" style="background: url('{% static 'cov.webp' %}') 0 0/cover;"></div>
-        <form method="" >
-                <div class=" form-group">
-            <a class="btn btn-primary btn-block" href="{% url 'report' %}"
-                style="background: #ffffff;color: #37434d;border-style: solid;">Administrator
-                Login</a>
-            <a class="btn btn-primary btn-block" href="{% url 'update' %}"
-                style="background: #ffffff;color: #37434d;border-style: solid;border-color: #37434d;">Student
-                Login</a>
+        <form method="">
+            <div class=" form-group">
+                <a class="btn btn-primary btn-block" href="{% url 'report' %}"
+                    style="background: #ffffff;color: #37434d;border-style: solid;">Administrator
+                    Login</a>
+                <a class="btn btn-primary btn-block" href="{% url 'update' %}"
+                    style="background: #ffffff;color: #37434d;border-style: solid;border-color: #37434d;">Student
+                    Login</a>
+            </div>
+        </form>
     </div>
-    </form>
-</div>
 </div>
 
 
